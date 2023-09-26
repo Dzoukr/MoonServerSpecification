@@ -2,7 +2,7 @@ openapi: 3.1.0
 info:
   title: Moon Server 
   description: |-
-    Open API specification for simple file-based (markdown, text, ...) publishing server
+    Open API specification for simple file-based (markdown, text, ...) data publishing server
   contact:
     email: dzoukr@dzoukr.cz
   license:
