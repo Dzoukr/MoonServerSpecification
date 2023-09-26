@@ -15,11 +15,17 @@ A Moon Server is the most simplified language/technology-agnostic definition of 
 **Response**
 ```json
 {
-  name : "Article ABC",
-  path : "my/folder/Article ABC.md",
-  metadata : [{ key : "category", value : "test" }],
-  content : "Markdown",
-  attachments : [{ filename : "image.jpg", payload : "base64" }]
+	"name": "Article ABC",
+	"path": "my/folder/Article ABC.md",
+	"metadata": [{
+		"key": "category",
+		"value": "test"
+	}],
+	"content": "Markdown",
+	"attachments": [{
+		"filename": "image.jpg",
+		"payload": "base64"
+	}]
 }
 ```
 
@@ -30,18 +36,24 @@ Creates or updates item
 **Body**
 ```json
 {
-  name : "Article ABC",
-  path : "my/folder/Article ABC.md",
-  metadata : [{ key : "category", value : "test" }],
-  content : "Markdown",
-  attachments : [{ filename : "image.jpg", payload : "base64" }]
+	"name": "Article ABC",
+	"path": "my/folder/Article ABC.md",
+	"metadata": [{
+		"key": "category",
+		"value": "test"
+	}],
+	"content": "Markdown",
+	"attachments": [{
+		"filename": "image.jpg",
+		"payload": "base64"
+	}]
 }
 ```
 
 **Response**
 ```json
 {
-  id : "123"
+  "id" : "123"
 }
 ```
 
