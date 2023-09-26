@@ -8,6 +8,9 @@ A Moon Server is the most simplified language/technology-agnostic definition of 
 - Unpublishing notes
 - Getting note detail by ID (generated on the server during publishment)
 
+## Ecosystem
+Any implementation following Open API specification will play nicely with [Moon Server Publisher](https://github.com/Dzoukr/MoonServerObsidianPlugin) plugin for [Obsidian](https://obsidian.md) editor.
+
 ## Minimal definition
 
 ### `GET` /detail/{id}
@@ -55,3 +58,6 @@ empty
 
 ## Open API specification
 See the source code [MoonServerSpecification.yaml](MoonServerSpecification.yaml)
+
+## What about other actions like filtering, searching, ...?
+To keep the definition at its absolute minimum, this specification does not solve additional functionalities like searching, paging, sorting, grouping, and other possible list actions. It's up to every single specific Moon Server implementation to define additional logic and extended endpoints to do so.
