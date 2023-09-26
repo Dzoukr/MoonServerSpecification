@@ -1,0 +1,133 @@
+openapi: 3.1.0
+info:
+  title: Moon Server 
+  description: |-
+    Open API specification for simple file-based (markdown, text, ...) publishing server
+  contact:
+    email: dzoukr@dzoukr.cz
+  license:
+    name: MIT
+    url: https://en.wikipedia.org/wiki/MIT_License
+  version: 1.0.0
+servers:
+  - url: https://moon.example.com
+paths:
+  /publish:
+    post:
+      summary: Publish data to Moon Server
+      description: Publish data to Moon Server
+      operationId: publish
+      requestBody:
+        description: Publish data to Moon Server
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublishData'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublishId'
+  /publish/{id}:
+    post:
+      summary: Republish data to Moon Server
+      description: Republish data to Moon Server
+      operationId: republish
+      parameters:
+        - name: id
+          in: path
+          description: ID of data to republish to
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Republish data to Moon Server
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublishData'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublishId'
+  /unpublish/{id}:
+    post:
+      summary: Unpublish data from Moon Server
+      description: Unpublish data to Moon Server
+      operationId: unpublish
+      responses:
+        '200':
+          description: Successful operation
+  /detail/{id}:
+    get:
+      summary: Read published data from Moon Server
+      description: Read published data from Moon Server
+      operationId: detail
+      parameters:
+        - name: id
+          in: path
+          description: ID of data to return
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublishData'
+        '404':
+          description: ID not found
+
+components:
+  schemas:
+    PublishId:
+      type: object
+      properties:
+          id:
+            type: string
+      required: [id]
+    PublishData:
+      type: object
+      properties:
+        name:
+          type: string
+        path:
+          type: string
+        metadata:
+          type: array
+          items:
+            type: object
+            properties:
+              key:
+                type: string
+              value:
+                oneOf:
+                  - type: string
+                  - type: boolean
+                  - type: array
+                  - type: number
+                  - type: integer
+                  - type: object
+            required: [key, value]
+        content:
+          type: string
+        attachments:
+          type: array
+          items:
+            type: object
+            properties:
+              filename:
+                type: string
+              payload:
+                type: string
+            required: [filename, payload]
+      required: [name, path, metadata, content, attachments]
