@@ -1,4 +1,4 @@
-# MoonServerSpecification
+# Moon Server Specification
 Open API specification for simple file-based data (markdown, text, ...) publishing server
 
 ## What is a Moon Server?
