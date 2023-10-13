@@ -97,6 +97,7 @@ components:
       type: object
       examples: 
         - { "id": 123 }
+        - { "id": null } # in case ID successfully unpublished
         - { "category": "lifestyle" }
         - { "tags": ["A","B"] }
     PublishData:
