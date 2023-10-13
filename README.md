@@ -20,9 +20,9 @@ Any implementation following Open API specification will play nicely with [Moon 
 {
     "name": "Article ABC",
     "path": "my/folder/Article ABC.md",
-    "metadata": [{"key": "category","value": "test"}],
+    "metadata": [{"id": 123, "category": "lifestyle"}],
     "content": "Markdown",
-    "attachments": [{"filename": "image.jpg","payload": "base64"}]
+    "attachments": [{"image.jpg": "base64"}]
 }
 ```
 
@@ -35,25 +35,34 @@ Creates or updates item
 {
     "name": "Article ABC",
     "path": "my/folder/Article ABC.md",
-    "metadata": [{"key": "category","value": "test"}],
+    "metadata": [{"id": 123, "category": "lifestyle"}],
     "content": "Markdown",
-    "attachments": [{"filename": "image.jpg","payload": "base64"}]
+    "attachments": [{"image.jpg": "base64"}]
 }
 ```
 
 **Response**
+
+Response **must** contain an object with `ID`!
+
 ```json
 {
-    "id" : "123"
+    "id" : 123,
+    "anything" : "else"
 }
 ```
 
 ### `POST` /unpublish/{id}
 Removes the item
 
+Response **must** contain an object with `ID` set to `null` or `ID` must be completely missing (so the client system knows it was successfully unpublished)!
+
 **Response**
-```text
-empty
+```json
+{
+    "id" : null,
+    "anything" : "else"
+}
 ```
 
 ## Open API specification
