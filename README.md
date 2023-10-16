@@ -20,9 +20,9 @@ Any implementation following Open API specification will play nicely with [Moon 
 {
     "name": "Article ABC",
     "path": "my/folder/Article ABC.md",
-    "metadata": [{"id": 123, "category": "lifestyle"}],
+    "metadata": {"id": 123, "category": "lifestyle"},
     "content": "Markdown",
-    "attachments": [{"image.jpg": "base64"}]
+    "attachments": {"image.jpg": "base64"}
 }
 ```
 
@@ -35,9 +35,9 @@ Creates or updates item
 {
     "name": "Article ABC",
     "path": "my/folder/Article ABC.md",
-    "metadata": [{"id": 123, "category": "lifestyle"}],
+    "metadata": {"id": 123, "category": "lifestyle"},
     "content": "Markdown",
-    "attachments": [{"image.jpg": "base64"}]
+    "attachments": {"image.jpg": "base64"}
 }
 ```
 
